@@ -2,7 +2,7 @@ from otree.api import *
 import random
 
 doc = """
-This is a two-period investment game with 2 players.
+This is a 3-period investment game with 2 players.
 """
 
 
