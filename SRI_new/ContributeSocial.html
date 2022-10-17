@@ -1,0 +1,22 @@
+{{ block title }}Social contribution{{ endblock }}
+{{ block content }}
+<br><br>
+
+    {{ if player.round_number == Constants.num_rounds }}
+
+<strong style="color:blue">Round {{ player.round_number }}</strong> <b>(final round!)</b>
+
+    {{ else }}
+
+    <strong style="color:blue">Round {{ player.round_number }}</strong>
+
+    {{ endif }}
+
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+    {{ include Constants.instructions_social }}
+
+{{ endblock }}
