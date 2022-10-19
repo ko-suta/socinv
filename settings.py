@@ -3,8 +3,24 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='SRI_new',
-        app_sequence=['SRI_new'],
+        app_sequence=['consent', 'survey', 'SRI_new', 'payment_info'],
         num_demo_participants=2,
+        completionlink='https://app.prolific.co/submissions/complete?cc=11111111',
+    ),
+]
+
+ROOMS = [
+    dict(
+        name='SRI',
+        display_name='Social investment game',
+        # participant_label_file='_rooms/your_study.txt',
+        # use_secure_urls=True,
+    ),
+    dict(
+        name='SRI_prolific',
+        display_name='SRI prolific',
+        # participant_label_file='_rooms/your_study.txt',
+        # use_secure_urls=True,
     ),
 ]
 
@@ -14,21 +30,26 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc="",
-    mturk_hit_settings=dict(
-        keywords='SRI, Sustainability, Capital',
-        title='Social Investment - Experimental Study',
-        description='Experiment',
-        frame_height=500,
-        template='global/mturk_template.html',
-        minutes_allotted_per_assignment=60,
-        expiration_hours=7 * 24,
-        qualification_requirements=[]
-        # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
-        ),
+    real_world_currency_per_point=1.00,
+    participation_fee=100.00, doc=""
 )
 
-PARTICIPANT_FIELDS = []
+# SESSION_CONFIG_DEFAULTS = dict(
+#     real_world_currency_per_point=1.00, participation_fee=0.00, doc="",
+#     mturk_hit_settings=dict(
+#         keywords='SRI, Sustainability, Capital',
+#         title='Social Investment - Experimental Study',
+#         description='Experiment',
+#         frame_height=500,
+#         template='global/mturk_template.html',
+#         minutes_allotted_per_assignment=60,
+#         expiration_hours=7 * 24,
+#         qualification_requirements=[]
+#         # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
+#         ),
+# )
+
+PARTICIPANT_FIELDS = ['consent']
 SESSION_FIELDS = []
 
 # ISO-639 code

@@ -2,14 +2,14 @@ from otree.api import *
 import random
 
 doc = """
-This is a 3-period investment game with 2 players.
+This is a two-period investment game with 2 players.
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'SRI_new'
     players_per_group = 2
-    num_rounds = 3
+    num_rounds = 2
     instructions_general = 'SRI_new/InstructionsGeneral.html'
     instructions_private = 'SRI_new/InstructionsPrivate.html'
     instructions_social = 'SRI_new/InstructionsSocial.html'
@@ -69,6 +69,14 @@ def social_contribution_max(player):
     else:
         player.social_endowment = player.past_payoff - player.private_contribution
         return player.social_endowment
+
+
+# def creating_session(subsession):
+#     if subsession.round_number == 1:
+#         subsession.group_randomly()
+#         print(subsession.get_group_matrix())
+#     else:
+#         subsession.group_like_round(1)
 
 
 def set_payoffs(group: Group):
@@ -139,4 +147,5 @@ class CombinedResults(Page):
         return player.round_number == Constants.num_rounds
 
 
-page_sequence = [Introduction, ContributePrivate, ContributeSocial, ResultsWaitPage, Results, CombinedResults]
+page_sequence = [Introduction, ContributePrivate, ContributeSocial, ResultsWaitPage, Results,
+                 CombinedResults]
