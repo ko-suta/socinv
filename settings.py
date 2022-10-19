@@ -13,7 +13,7 @@ ROOMS = [
     dict(
         name='SRI',
         display_name='Social investment game',
-        participant_label_file='_rooms/your_study.txt',
+        participant_label_file='_rooms/sri_1.txt',
         # use_secure_urls=True,
     ),
     dict(
