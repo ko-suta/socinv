@@ -5,7 +5,7 @@ SESSION_CONFIGS = [
         name='SRI_new',
         app_sequence=['consent', 'survey', 'SRI_new', 'payment_info'],
         num_demo_participants=2,
-        completionlink='https://app.prolific.co/submissions/complete?cc=11111111',
+        completionlink='https://app.prolific.co/submissions/complete?cc=CJZCNOVZ',
     ),
 ]
 
@@ -13,7 +13,7 @@ ROOMS = [
     dict(
         name='SRI',
         display_name='Social investment game',
-        # participant_label_file='_rooms/your_study.txt',
+        participant_label_file='_rooms/your_study.txt',
         # use_secure_urls=True,
     ),
     dict(
