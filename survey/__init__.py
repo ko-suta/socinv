@@ -1,5 +1,8 @@
 from otree.api import *
 
+doc = """
+This is a survey containing general questions.
+"""
 
 class Constants(BaseConstants):
     name_in_url = 'survey'
