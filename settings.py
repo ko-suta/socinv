@@ -34,20 +34,6 @@ SESSION_CONFIG_DEFAULTS = dict(
     participation_fee=100.00, doc=""
 )
 
-# SESSION_CONFIG_DEFAULTS = dict(
-#     real_world_currency_per_point=1.00, participation_fee=0.00, doc="",
-#     mturk_hit_settings=dict(
-#         keywords='SRI, Sustainability, Capital',
-#         title='Social Investment - Experimental Study',
-#         description='Experiment',
-#         frame_height=500,
-#         template='global/mturk_template.html',
-#         minutes_allotted_per_assignment=60,
-#         expiration_hours=7 * 24,
-#         qualification_requirements=[]
-#         # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
-#         ),
-# )
 
 PARTICIPANT_FIELDS = ['consent']
 SESSION_FIELDS = []
