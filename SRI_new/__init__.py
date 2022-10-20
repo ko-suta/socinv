@@ -8,7 +8,7 @@ This is a two-period investment game with 2 players.
 
 class Constants(BaseConstants):
     name_in_url = 'SRI_new'
-    players_per_group = 1
+    players_per_group = 2
     num_rounds = 2
     instructions_general = 'SRI_new/InstructionsGeneral.html'
     instructions_private = 'SRI_new/InstructionsPrivate.html'
@@ -53,21 +53,6 @@ class Group(BaseGroup):
 
 
 # FUNCTIONS
-def vars_for_admin_report(subsession: Subsession):
-    contributions = [p.social_contribution for p in subsession.get_players() if p.social_contribution != None]
-    if contributions:
-        return dict(
-            avg_contribution=sum(contributions) / len(contributions),
-            min_contribution=min(contributions),
-            max_contribution=max(contributions),
-        )
-    else:
-        return dict(
-            avg_contribution='(no data)',
-            min_contribution='(no data)',
-            max_contribution='(no data)',
-        )
-
 def private_contribution_max(player):
     if player.round_number == 1:
         return Constants.endowment
@@ -122,6 +107,21 @@ def set_payoffs(group: Group):
         p.payoff = p.social_payoff + p.private_payoff + p.money_kept
         p.future_payoff = p.social_payoff + p.private_payoff + p.money_kept + p.private_share  # for html solely
 
+
+def vars_for_admin_report(subsession: Subsession):
+    contributions = [p.social_contribution for p in subsession.get_players() if p.social_contribution != None]
+    if contributions:
+        return dict(
+            avg_contribution=sum(contributions) / len(contributions),
+            min_contribution=min(contributions),
+            max_contribution=max(contributions),
+        )
+    else:
+        return dict(
+            avg_contribution='(no data)',
+            min_contribution='(no data)',
+            max_contribution='(no data)',
+        )
 
 # PAGES
 class Introduction(Page):
