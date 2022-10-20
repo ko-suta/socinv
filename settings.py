@@ -1,4 +1,14 @@
 from os import environ
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://22e6351ffaa747a196f10d8b48b4aaf2@o4504010287284224.ingest.sentry.io/4504010287284224",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
 
 SESSION_CONFIGS = [
     dict(
