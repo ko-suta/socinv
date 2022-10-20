@@ -25,7 +25,6 @@ class Subsession(BaseSubsession):
 
 
 class Player(BasePlayer):
-    prolific_id = models.StringField(default=str(" "))
     private_multiplier = models.FloatField()
     past_private_multiplier = models.FloatField()
     past_private_contribution = models.CurrencyField()
@@ -56,7 +55,6 @@ class Group(BaseGroup):
 
 # FUNCTIONS
 def private_contribution_max(player):
-    player.prolific_id = player.participant.label
     if player.round_number == 1:
         return Constants.endowment
     else:
