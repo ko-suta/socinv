@@ -10,6 +10,7 @@ class Constants(BaseConstants):
     name_in_url = 'SRI_new'
     players_per_group = 2
     num_rounds = 2
+    PAPERCUPS_TEMPLATE = 'SRI_new/papercups.html'
     instructions_general = 'SRI_new/InstructionsGeneral.html'
     instructions_private = 'SRI_new/InstructionsPrivate.html'
     instructions_social = 'SRI_new/InstructionsSocial.html'
