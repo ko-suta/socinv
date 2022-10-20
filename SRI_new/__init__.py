@@ -8,7 +8,7 @@ This is a two-period investment game with 2 players.
 
 class Constants(BaseConstants):
     name_in_url = 'SRI_new'
-    players_per_group = 2
+    players_per_group = 0
     num_rounds = 2
     instructions_general = 'SRI_new/InstructionsGeneral.html'
     instructions_private = 'SRI_new/InstructionsPrivate.html'
