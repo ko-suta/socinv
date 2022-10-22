@@ -1,9 +1,14 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+  command = "npm run ci && npm run export"
+  publish = "_site/"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   
 [context.production.environment]
   PYTHON_VERSION = "3.8"
+  
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
