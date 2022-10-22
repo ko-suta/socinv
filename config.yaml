@@ -5,7 +5,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Kostiantyn Ovsiannikov # Website name
-baseurl: 'socinv.herokuapp.com/' # Website URL
+baseurl: 'https://socinv.herokuapp.com/' # Website URL
 copyright: 'Kostiantyn Ovsiannikov &#169; <script>document.write(new Date().getFullYear())</script>' # Footer text, e.g. '© {year} Me'
 
 ############################
