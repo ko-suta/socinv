@@ -1,0 +1,25 @@
+{{ block title }}Summary of your answers{{ endblock }}
+{{ block content }}
+
+    <p>
+        Your name is <b>{{ player.name }}</b>.
+    </p>
+
+    <p>
+        Your age is <b>{{ player.age }}</b>.
+    </p>
+
+    <p>
+        Your gender is <b>{{ player.gender }}</b>.
+
+    </p>
+
+    <p>
+        Your Student ID is <b>{{ player.student_id }}</b>.
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}
