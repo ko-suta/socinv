@@ -1,0 +1,61 @@
+{{ block title }}Combined results{{ endblock }}
+{{ block content }}
+
+Here, your total earnings, including the <b>future</b> payoff for your current <b>private</b> investment are displayed:
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td colspan="2"><hr/></td></tr>
+
+        {{ if player.payoff > 0 }}
+
+        <tr><td>As you remember, your balance for the
+            <b>Round {{ player.round_number }}</b> (the final one)
+            was:</td><td><b style="color:green">{{ player.payoff }}</b></td></tr>
+
+        {{ else }}
+
+        <tr><td>As you remember, your balance for the
+            <b>Round {{ player.round_number }}</b> (the final one)
+            was:</td><td><b style="color:red">{{ player.payoff }}</b></td></tr>
+
+        {{ endif }}
+
+        <tr><td colspan="2"><hr/></td></tr>
+            {{ if player.private_multiplier < 1 }}
+                <tr><td>Your <b>private</b> investment multiplier
+                    from <b>this</b> round is: </td><td>{{ player.private_multiplier }}</td></tr>
+                <tr><td>Your <b>private</b> investment for <b>this</b> round is:
+                    </td><td>{{ player.private_contribution }}</td></tr>
+                <tr><td><b style="color:red">Unfortunately</b>, your <b>private</b> investment
+                    led to a loss <b>in future</b>:
+                    </td><td><b style="color:red">{{ player.private_share }}</b></td></tr>
+            {{ else }}
+                <tr><td>Your <b>private</b> investment multiplier
+                    from <b>this</b> round is: </td><td>{{ player.private_multiplier }}</td></tr>
+                <tr><td>Your <b>private</b> investment for <b>this</b> round is:
+                    </td><td>{{ player.private_contribution }}</td></tr>
+                <tr><td><b style="color:green">Congratulations</b>, your <b>private</b> investment
+                    gave a <b>future</b> yield of:
+                    </td><td><b>{{ player.private_share }}</b></td></tr>
+            {{ endif }}
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        {{ if player.future_payoff > 0 }}
+
+        <tr><td>Thus, your <b>total</b> payoff (including <b>future private</b> profits)
+            amounts to:</td><td><b style="color:green">{{ player.future_payoff }}</b></td></tr>
+
+        {{ else }}
+
+        <tr><td>Thus, your <b>total</b> payoff (including <b>future private</b> profits)
+            amounts to:</td><td><b style="color:red">{{ player.future_payoff }}</b></td></tr>
+
+        {{ endif }}
+
+    </table>
+    <p></p>
+
+{{ next_button }}
+
+{{ endblock }}

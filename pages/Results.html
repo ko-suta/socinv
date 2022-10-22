@@ -1,0 +1,79 @@
+{{ block title }}Results for the Round {{ player.round_number }} {{ endblock }}
+{{ block content }}
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>Your initial endowment was:</td><td>
+            {{ if player.round_number == 1 }}
+                <b>{{ Constants.endowment }}</b>
+            {{ else }}
+                <b>{{ player.past_payoff }}</b>
+            {{ endif }}</td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+            <tr><td>Your <b>social</b> investment was:</td><td>{{ player.social_contribution }}</td></tr>
+            <tr><td>Your <b>private</b> investment for <b>this</b> round was:
+            </td><td>{{ player.private_contribution }}</td></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+
+        <tr><td>Thus, the amount you chose to keep equals to:</td><td><b>{{ player.money_kept }}</b></td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        {{ if player.round_number == 1 }}
+            <tr><td>Play the next round to discover the <b>private</b> investment yield
+                from the current round!</td></tr>
+            {{ elif player.past_private_multiplier < 1 }}
+                <tr><td>Your <b>private</b> investment multiplier
+                    from the <b>previous</b> round was: </td><td>{{ player.past_private_multiplier }}</td></tr>
+                <tr><td>Your <b>private</b> investment for the <b>previous</b> round was:
+                    </td><td>{{ player.past_private_contribution }}</td></tr>
+                <tr><td><b style="color:red">Unfortunately</b>, your <b>private</b> investment resulted in loss:
+                    </td><td><b style="color:red">{{ player.private_payoff }}</b></td></tr>
+            {{ else }}
+                {{ elif player.private_payoff < 0 }}
+                <tr><td>Your <b>private</b> investment multiplier
+                    from the <b>previous</b> round was: </td><td>{{ player.past_private_multiplier }}</td></tr>
+                <tr><td>Your <b>private</b> investment for the <b>previous</b> round was:
+                    </td><td>{{ player.past_private_contribution }}</td></tr>
+                <tr><td><b style="color:red">Caution</b>, you've invested <b>privately</b>
+                    too much during this round, leading to a negative <b>private</b> balance:
+                    </td><td><b style="color:red">{{ player.private_payoff }}</b></td></tr>
+                {{ else }}
+                <tr><td>Your <b>private</b> investment multiplier
+                    from the <b>previous</b> round was: </td><td>{{ player.past_private_multiplier }}</td></tr>
+                <tr><td>Your <b>private</b> investment for the <b>previous</b> round was:
+                    </td><td>{{ player.past_private_contribution }}</td></tr>
+                <tr><td><b style="color:green">Congratulations</b>, your <b>private</b> investment yielded:
+                    </td><td><b>{{ player.private_payoff }}</b></td></tr>
+        {{ endif }}
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+            {{ for p in player.get_others_in_group }}
+                    <tr><td>Other participants' <b>social</b> contributions are:</td><td>
+                    {{ p.social_contribution }}</td></tr>
+            {{ endfor }}
+
+                    <tr><td>Total <b>social</b> contribution:</td><td>{{ group.total_contribution }}</td></tr>
+                    <tr><td><b>Social</b> earning per each group member:</td><td>{{ group.social_share }}</td></tr>
+        <tr><td>Your <b>social</b> contribution yielded:</td><td><b>{{ player.social_payoff }}</b></td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        {{ if player.payoff > 0 }}
+
+        <tr><td>Your new remaining balance is:</td><td><b style="color:green">{{ player.payoff }}</b></td></tr>
+
+        {{ else }}
+
+        <tr><td>Your new remaining balance is:</td><td><b style="color:red">{{ player.payoff }}</b></td></tr>
+
+        {{ endif }}
+
+    </table>
+    <p></p>
+
+
+{{ next_button }}
+
+{{ endblock }}
