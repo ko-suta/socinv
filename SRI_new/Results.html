@@ -51,7 +51,7 @@
 
         {{ for p in player.get_others_in_group }}
                     <tr><td>Other participants' total <b>social</b> contribution is:</td><td>
-                    {{ p.total_contribution }}</td></tr>
+                    {{ p.social_contribution }}</td></tr>
         {{ endfor }}
 
         <tr><td>Total <b>social</b> contribution:</td><td>{{ group.total_contribution }}</td></tr>
