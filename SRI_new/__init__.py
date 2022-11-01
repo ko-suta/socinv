@@ -39,6 +39,7 @@ class Player(BasePlayer):
         doc="""The amount of social contribution by the player""",
         label="How much will you contribute to the Social Project?",
     )
+    social_contribution_others = models.CurrencyField()
     total_contribution = models.CurrencyField()
     social_endowment = models.CurrencyField()
     past_payoff = models.CurrencyField()
@@ -124,6 +125,7 @@ def vars_for_admin_report(subsession: Subsession):
             max_contribution='(no data)',
         )
 
+
 # PAGES
 class Introduction(Page):
     """Description of the game: How to play and returns expected"""
@@ -154,6 +156,11 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     """Players payoff: How much each has earned"""
+
+    @staticmethod
+    def vars_for_template(player):  # for html solely
+        others = player.get_others_in_group()
+        player.social_contribution_others = sum([p.social_contribution for p in others])
 
 
 class CombinedResults(Page):

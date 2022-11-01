@@ -49,13 +49,11 @@
 
         <tr><td colspan="2"><hr/></td></tr>
 
-            {{ for p in player.get_others_in_group }}
-                    <tr><td>Other participants' <b>social</b> contributions are:</td><td>
-                    {{ p.social_contribution }}</td></tr>
-            {{ endfor }}
+        <tr><td>Other participants' total <b>social</b> contribution is:</td><td>
+                    {{ player.social_contribution_others }}</td></tr>
 
-                    <tr><td>Total <b>social</b> contribution:</td><td>{{ group.total_contribution }}</td></tr>
-                    <tr><td><b>Social</b> earning per each group member:</td><td>{{ group.social_share }}</td></tr>
+        <tr><td>Total <b>social</b> contribution:</td><td>{{ group.total_contribution }}</td></tr>
+        <tr><td><b>Social</b> earning per each group member:</td><td>{{ group.social_share }}</td></tr>
         <tr><td>Your <b>social</b> contribution yielded:</td><td><b>{{ player.social_payoff }}</b></td></tr>
 
         <tr><td colspan="2"><hr/></td></tr>
