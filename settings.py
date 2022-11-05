@@ -14,7 +14,7 @@ SESSION_CONFIGS = [
     dict(
         name='SRI_new',
         app_sequence=['consent', 'survey', 'SRI_new', 'payment_info'],
-        num_demo_participants=4,
+        num_demo_participants=2,
         completionlink='https://app.prolific.co/submissions/complete?cc=CJZCNOVZ',
     ),
 ]
